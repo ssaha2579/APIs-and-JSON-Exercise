@@ -18,11 +18,11 @@ namespace APIsAndJSON
             var weatherData = JObject.Parse(response);
 
             var temp = weatherData["main"]["temp"];
-            var description = weatherData["weather"][0]["description"];
+            var description = weatherData["weather"]![0]!["description"];
 
 
             Console.WriteLine($"Temperature: {temp}");
-            Console.WriteLine($"Condition: {description}"
+            Console.WriteLine($"Condition: {description}");
 
 
         }
