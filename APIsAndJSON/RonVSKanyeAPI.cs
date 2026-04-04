@@ -9,18 +9,15 @@ namespace APIsAndJSON
 {
     public class RonVSKanyeAPI
     {
+        private static readonly HttpClient client = new HttpClient();
         public static void Run()
         {
-            HttpClient Client = new HttpClient();
-
             for (int i = 0; i < 5; i++)
             {
-                var KanyeResponse = Client.GetStringAsync("https://api.kanye.rest/").Result;
+                var KanyeResponse = client.GetStringAsync("https://api.kanye.rest/").Result;
                 var KanyeQuote = JObject.Parse(KanyeResponse)["quote"];
-
-                var RonResponse = Client.GetStringAsync("https://ron-swanson-quotes.herokuapp.com/v2/quotes").Result;
+                var RonResponse = client.GetStringAsync("https://ron-swanson-quotes.herokuapp.com/v2/quotes").Result;
                 var RonQuote = JArray.Parse(RonResponse)[0];
-
                 Console.WriteLine($"Kanye: {KanyeQuote}");
                 Console.WriteLine($"Ron: {RonQuote}");
             }
