@@ -5,11 +5,11 @@ namespace APIsAndJSON
 {
     public class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             RonVSKanyeAPI.Run();
             Console.WriteLine(); 
-            OpenWeatherMapAPI.Run();
+            await OpenWeatherMapAPI.Run();
         }
     }
 }
